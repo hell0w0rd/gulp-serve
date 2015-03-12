@@ -22,8 +22,13 @@ gulp.task('serve-build', serve(['public', 'build']));
 gulp.task('serve-prod', serve({
     root: ['public', 'build'],
     port: 80,
-    middleware: function(req, res) {
+    middlewares: function(req, res) {
         // custom optional middleware
+        return [
+            require('somemodule')(),
+            require('othermodule')(),
+            ...
+        ];
     }
 }));
 ```

@@ -22,10 +22,7 @@ module.exports = function (config) {
     if (!config.middlewares) {
       config.middlewares = [];
     }
-    if (config.middleware) {
-      config.middlewares.push(config.middleware);
-    }
-    config.middlewares.forEach(function(middleware) {
+    config.middlewares().forEach(function(middleware) {
       app.use(middleware);
     });
 
