@@ -76,5 +76,29 @@ describe('static webserver', function() {
         )
         .end();
     });
+
+    it('should allow gzip/deflate compression', function(done) {
+
+      serve({
+        root: './test/server/',
+        port: 3003,
+        compression: true
+      })();
+
+      http
+        .request(
+          {
+            hostname: 'localhost',
+            port: 3003,
+            method: 'GET',
+            headers: {'accept': 'text/html'}
+          },
+          function(res) {
+            res.headers.vary.should.equal('Accept-Encoding');
+            done();
+          }
+        )
+        .end();
+    })
   });
 });

@@ -1,11 +1,13 @@
 var util = require('gulp-util');
 var connect = require('connect');
 var http = require('http');
+var compression = require('compression')
 
 module.exports = function (config) {
   config || (config = {});
   return function () {
     var app = connect();
+
     if (typeof config === 'string') {
       config = {root:[config]};
     }
@@ -17,6 +19,10 @@ module.exports = function (config) {
     }
     if (typeof config.root === 'string') {
       config.root = [config.root];
+    }
+
+    if (config.compression) {
+      app.use(compression());
     }
 
     if (!config.middlewares) {
