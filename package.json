@@ -19,7 +19,12 @@
       "name": "Ilya Lakhin",
       "email": "eliah.lakhin@gmail.com",
       "url": "http://lakhin.com/"
-    }
+    },
+    {
+      "name": "Vladislav Derjavin",
+      "email": "dev@vld.me",
+      "url": "http://vld.me/"
+    },
   ],
   "license": "MIT",
   "readmeFilename": "README.md",
