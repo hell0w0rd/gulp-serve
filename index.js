@@ -1,8 +1,9 @@
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
+var colors = require('ansi-colors');
+var log = require('fancy-log');
 var path = require('path');
-var util = require('gulp-util');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 
@@ -59,7 +60,7 @@ module.exports = function (config) {
       var address = addr.address;
       var port = addr.port;
       var scheme = 'http' + (config.https ? 's' : '');
-      util.log(util.colors.blue('Server started at ' + scheme + '://' + address + ':' + port));
+      log(colors.blueBright('Server started at ' + scheme + '://' + address + ':' + port));
     };
 
     if (config.https) {
